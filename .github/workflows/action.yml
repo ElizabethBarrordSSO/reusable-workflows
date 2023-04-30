@@ -1,0 +1,14 @@
+name: 'reusable action'
+on:
+  workflow_call:
+    secrets:
+      EB_TEST_CONTEXT_SECRET:
+        required: false
+jobs:
+  test-access:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test access
+        env:
+          EB_TEST_CONTEXT_SECRET: ${{ secrets.EB_TEST_CONTEXT_SECRET }}
+        run: echo The secret ${{ EB_TEST_CONTEXT_SECRET }}
