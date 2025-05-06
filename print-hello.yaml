@@ -1,0 +1,14 @@
+name: Print Hello on Markdown Change
+
+on:
+  pull_request:
+    paths:
+      - '**/*.md'
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Print Hello
+      run: echo "Hello"
